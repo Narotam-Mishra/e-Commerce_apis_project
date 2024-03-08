@@ -6,6 +6,8 @@ const server = express();
 
 // rest of used packages
 
+const cookieParser = require('cookie-parser');
+
 // morgan middlware for logging
 const morgan = require('morgan');
 
@@ -21,13 +23,23 @@ const authRoute = require('./routes/authRoutes');
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
+// middleware setup for morgan for logging
 server.use(morgan('tiny'));
 
 // middleware setup to access JSON data
 server.use(express.json())
 
+// middleware setup to access cookie on server
+server.use(cookieParser(process.env.JWT_SECRET));
+
 server.get('/', (req,res) => {
     res.send('welcome to e-commerce service...')
+});
+
+server.get('/api/v1', (req,res) => {
+    // console.log(req.cookies);
+    console.log(req.signedCookies);
+    res.send('e-commerce api...');
 });
 
 server.use('/api/v1/auth', authRoute);

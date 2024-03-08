@@ -5,7 +5,16 @@ Github Repo - https://github.com/john-smilga
 
 # validator - A library of string validators and sanitizers.
 
+# access cookie on server using `cookie-parser`.
 
+# signed and secure flags
+# Link - https://expressjs.com/en/5x/api.html#res.cookie
+
+# In case of secure flag, it restricts browsers to send cookies only over HTTPS.
+
+# In case of signed flag, cookies will be visible but with signature hence it can detect if the client modified the cookie.
+
+# When we perform testing of our app, we working in HTTP and we use HTTPS when we deploy the app to production 
 
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
@@ -51,3 +60,25 @@ x# Here's what the `pre()` method does:
    - This allows you to manipulate the document's data before it's saved or perform additional actions based on the document's properties.
 
 # Overall, `pre()` method in Mongoose Schema is a powerful feature that allows you to add custom logic or perform tasks before specific document operations, enhancing the flexibility and functionality of your MongoDB-backed applications.
+
+# purpose of using `cookie-parser`
+
+# The `cookie-parser` package in Node.js is used to parse HTTP request cookies. When a client sends an HTTP request to a server, it can include cookies in the request headers. These cookies may contain session information, user preferences, authentication tokens, or other data.
+
+# Here are some reasons why developers use the `cookie-parser` package:
+
+1. **Parsing Cookies**: The primary purpose of `cookie-parser` is to parse the cookies sent by clients in HTTP requests. It extracts cookie data from the request headers and makes it accessible to the server-side code.
+
+2. **Simplified Access**: After parsing, the `cookie-parser` package simplifies access to cookie data by providing it as an object or a key-value pair, making it easier for developers to work with cookie data in their applications.
+
+3. **Middleware Function**: `cookie-parser` is often used as a middleware function in Express.js applications. Middleware functions intercept incoming requests before they reach the route handlers, allowing developers to preprocess request data, including cookies, before handling them in the route handlers.
+
+4. **Security**: `cookie-parser` provides options for configuring secure cookies, such as setting the `signed` option to sign the cookies with a secret, which helps prevent tampering and enhances security.
+
+5. **Integration with Session Management**: Many web applications use cookies to manage user sessions. The `cookie-parser` package integrates seamlessly with session management middleware like `express-session`, enabling developers to create and manage user sessions based on cookies.
+
+6. **Consistency**: Using `cookie-parser` ensures consistency and compatibility with various client-side frameworks and libraries that rely on cookies for storing and transmitting data, such as browser-based authentication mechanisms and state management solutions.
+
+# Overall, `cookie-parser` simplifies the process of working with HTTP cookies in Node.js applications, providing developers with a convenient and standardized way to handle cookie data, enhance security, and integrate session management functionality.
+
+# 

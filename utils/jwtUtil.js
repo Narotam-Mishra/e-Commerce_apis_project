@@ -1,6 +1,6 @@
 
 const jwt = require('jsonwebtoken');
-
+const { StatusCodes } = require('http-status-codes');
 
 const createJWT = ({ payload }) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -13,6 +13,21 @@ const isTokenValid = ({ token }) => {
     jwt.verify(token, process.env.JWT_SECRET);
 }
 
+// function to attach cookies to the response
+const attachCookiesToResponse = ({ res,user}) => {
+    const token = createJWT({ payload:user });
+
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    res.cookie('token', token, {
+        httpOnly: true,
+        expries: new Date(Date.now() + oneDay),
+        secure: process.env.NODE_ENV === 'production',
+        signed: true,
+    });
+    // res.status(StatusCodes.CREATED).json({ user })
+}
+
 module.exports = {
-    createJWT, isTokenValid
+    createJWT, isTokenValid, attachCookiesToResponse
 }
