@@ -23,6 +23,7 @@ const register = async (req,res) => {
     res.status(StatusCodes.CREATED).json({ user:tokenUser })
 }
 
+// login function
 const login = async (req,res) => {
     const { email, password} = req.body;
 
@@ -45,7 +46,11 @@ const login = async (req,res) => {
 }
 
 const logout = async (req,res) => {
-    res.send('logout user...');
+    res.cookie('token', 'logout', {
+        httpOnly: true,
+        expires: new Date(Date.now()),
+    });
+    res.status(StatusCodes.OK).json({ message: 'user loggout out successfully!!'});
 }
 
 module.exports = {

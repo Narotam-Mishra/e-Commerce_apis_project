@@ -16,6 +16,10 @@ Github Repo - https://github.com/john-smilga
 
 # When we perform testing of our app, we working in HTTP and we use HTTPS when we deploy the app to production 
 
+# More about Cookies 
+
+# 
+
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
 
