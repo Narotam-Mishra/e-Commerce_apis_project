@@ -16,6 +16,7 @@ const connectDB = require('./db/DBConnection');
 
 // routers
 const authRoute = require('./routes/authRoutes');
+const userRoute = require('./routes/userRoutes');
 
 // middleaware setup ans error handling
 
@@ -43,6 +44,7 @@ server.get('/api/v1', (req,res) => {
 });
 
 server.use('/api/v1/auth', authRoute);
+server.use('/api/v1/users', userRoute);
 
 server.use(notFoundMiddleware);
 server.use(errorHandlerMiddleware);

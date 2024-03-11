@@ -18,7 +18,13 @@ Github Repo - https://github.com/john-smilga
 
 # More about Cookies 
 
-# 
+# When we work with cookies on the frontend, we don't have to do anything. We make a request, we get back the cookie and browser does the rest part.
+
+# When it comes to HTTP only cookies unlike local storage, we can't access them with client side Javascript.
+
+# One downside of the cookie is that there is a max size for the cookie. So, if we are sending bunch of data that's something that need to be aware of and the max size of cookie is 4096 bytes. 
+
+# we can only send cookies back where they came fron (means on same domain) that means we can only use cookies on the same domain. Hence in case of React Application we need to send cookies where the react app is running and part from this we also need to add proxy in package.json file of react-app ("proxy" : "http://localhost:7374")  (port no 3000 or 5137) 
 
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
