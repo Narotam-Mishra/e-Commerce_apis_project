@@ -23,6 +23,7 @@ const showCurrentUser = async(req,res) => {
     res.status(StatusCodes.OK).json({ user: req.user })
 }
 
+// update user using user.save()
 const updateUser = async(req,res) => {
     const { email, name } = req.body;
     // extract email ans name from request body
@@ -30,12 +31,13 @@ const updateUser = async(req,res) => {
         throw new CustomError.BadRequestError(`Please provide both name and email values!`);
     }
 
-    // update the user's details name and email
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: req.user.userId },
-      { email, name },
-      { new: true, runValidators: true }
-    );
+    // find user by id and update them
+    const updatedUser = await User.findOne({ _id:req.user.userId });
+    updatedUser.email = email;
+    updatedUser.name = name;
+
+    // save updated user's details (name and email)
+    await updatedUser.save();
 
     // create new token token for updated user
     const tokenUser = createTokenUser(updatedUser);
@@ -62,6 +64,29 @@ const updateUserPassword = async(req,res) => {
     await user.save();
     res.status(StatusCodes.OK).json({msg: `password updated successfully!`});
 }
+
+// update user using findOneAndUpdate() method
+/*
+const updateUser = async(req,res) => {
+    const { email, name } = req.body;
+    // extract email ans name from request body
+    if(!email || !name){
+        throw new CustomError.BadRequestError(`Please provide both name and email values!`);
+    }
+
+    // update the user's details name and email
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: req.user.userId },
+      { email, name },
+      { new: true, runValidators: true }
+    );
+
+    // create new token token for updated user
+    const tokenUser = createTokenUser(updatedUser);
+    attachCookiesToResponse({ res, user:tokenUser });
+    res.status(StatusCodes.OK).json({ user: tokenUser});
+}
+*/
 
 module.exports = {
     getAllUsers, getSingleUser, showCurrentUser, updateUser, updateUserPassword

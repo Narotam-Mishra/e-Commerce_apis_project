@@ -35,6 +35,12 @@ const UserSchema = new mongoose.Schema({
 // hash and compare password
 
 UserSchema.pre('save', async function(){
+    // console.log('updated data:', this.modifiedPaths());
+    // console.log(this.isModified('name'));
+
+    // prevent unecessay update to password due to updated in name and email
+    if(!this.isModified('password')) return;
+    
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
 })
