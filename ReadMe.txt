@@ -26,6 +26,8 @@ Github Repo - https://github.com/john-smilga
 
 # we can only send cookies back where they came fron (means on same domain) that means we can only use cookies on the same domain. Hence in case of React Application we need to send cookies where the react app is running and part from this we also need to add proxy in package.json file of react-app ("proxy" : "http://localhost:7374")  (port no 3000 or 5137) 
 
+# Signed cookies are alwys present in req.signedCookies property and regular cookies (if we don't sign them) then they will be in the cookies.
+
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
 
