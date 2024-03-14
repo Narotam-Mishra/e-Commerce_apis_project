@@ -11,6 +11,8 @@ const cookieParser = require('cookie-parser');
 // morgan middlware for logging
 const morgan = require('morgan');
 
+const fileUpload = require('express-fileupload');
+
 // database connection
 const connectDB = require('./db/DBConnection');
 
@@ -18,8 +20,13 @@ const connectDB = require('./db/DBConnection');
 const authRoute = require('./routes/authRoutes');
 const userRoute = require('./routes/userRoutes');
 const productRoute = require('./routes/productRoutes');
+const reviewRoute = require('./routes/reviewRoutes');
 
 // middleaware setup ans error handling
+
+// host public folder (static files)
+server.use(express.static('./public'));
+server.use(fileUpload());
 
 // middleware imports
 const notFoundMiddleware = require('./middleware/not-found');
@@ -47,6 +54,7 @@ server.get('/api/v1', (req,res) => {
 server.use('/api/v1/auth', authRoute);
 server.use('/api/v1/users', userRoute);
 server.use('/api/v1/products', productRoute);
+server.use('/api/v1/reviews', reviewRoute);
 
 server.use(notFoundMiddleware);
 server.use(errorHandlerMiddleware);

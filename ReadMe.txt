@@ -28,6 +28,12 @@ Github Repo - https://github.com/john-smilga
 
 # Signed cookies are alwys present in req.signedCookies property and regular cookies (if we don't sign them) then they will be in the cookies.
 
+# reviews (model) is tied to user and product. user leaves a review on the product
+
+# Note - user can leave only one review per product.
+
+# There are two ways from which we can implement 'only one review per product' feature - 1). using 'indexing' right on schema, 2). in the controllers (review controller) when we create review APIS 
+
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
 
@@ -93,4 +99,30 @@ x# Here's what the `pre()` method does:
 
 # Overall, `cookie-parser` simplifies the process of working with HTTP cookies in Node.js applications, providing developers with a convenient and standardized way to handle cookie data, enhance security, and integrate session management functionality.
 
-# 
+# Indexing in MongoDB
+
+# In MongoDB, indexing is a technique used to improve the performance of queries by allowing the database to quickly locate and access specific documents in a collection. An index is a special data structure that stores a subset of the collection's data in an optimized format, making it faster to retrieve data based on the indexed fields.
+
+# Here are some key points about indexing in MongoDB:
+
+1. **Purpose**: Indexes are used to improve query performance by reducing the number of documents that need to be scanned or examined when executing a query. Without indexes, MongoDB would need to perform a collection scan, which can be slow and inefficient, especially for large collections.
+
+2. **Index Structure**: MongoDB supports various types of indexes, including single-field indexes, compound indexes (indexes on multiple fields), multikey indexes (for arrays), geospatial indexes, text indexes, hashed indexes, and more. Each index type is designed to optimize queries based on specific field types or query patterns.
+
+3. **Creation**: Indexes can be created on one or more fields of a collection using the `createIndex()` method or by specifying index keys in the schema when defining a collection using Mongoose (in Node.js). Indexes can also be created in the background to avoid blocking write operations.
+
+4. **Automatic Indexing**: MongoDB automatically creates an index on the `_id` field for every collection, which acts as the primary key. Additionally, some operations, such as creating unique constraints or enforcing unique fields, automatically create indexes behind the scenes.
+
+5. **Query Optimization**: When a query matches an indexed field or fields, MongoDB can use the index to quickly narrow down the search to a subset of documents that satisfy the query conditions. This significantly reduces the time and resources required to fetch the desired data.
+
+6. **Trade-offs**: While indexes improve read/query performance, they come with trade-offs. Indexes consume storage space and require additional processing during write operations (inserts, updates, and deletes). Over-indexing can lead to increased storage requirements and slower write performance.
+
+# In summary, indexing in MongoDB plays a crucial role in optimizing query performance and should be carefully planned based on the application's query patterns, data access patterns, and performance requirements. Efficient indexing strategies can greatly enhance the overall responsiveness and scalability of MongoDB databases.
+
+Q. Is 'unique' is index in mongoDB?
+
+# Yes, in MongoDB, the `unique` constraint is implemented using an index. When you mark a field as `unique` in MongoDB, MongoDB automatically creates a unique index on that field. This unique index enforces the uniqueness constraint and ensures that no two documents in the collection can have the same value for the unique field or combination of fields.
+
+# Behind the scenes, MongoDB maintains a unique index data structure that allows it to quickly check for duplicate values when inserting or updating documents. If a document violates the unique constraint, MongoDB rejects the operation and throws a duplicate key error.
+
+# It's important to note that while the `unique` constraint is enforced by an index, it is distinct from the concept of a primary key in traditional relational databases. In MongoDB, documents do not have a predefined primary key like in SQL databases. Instead, you can choose any field or combination of fields to have the `unique` constraint, and MongoDB will handle the indexing and uniqueness checks accordingly.

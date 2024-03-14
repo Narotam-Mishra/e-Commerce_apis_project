@@ -90,5 +90,9 @@ const updateUser = async(req,res) => {
 */
 
 module.exports = {
-    getAllUsers, getSingleUser, showCurrentUser, updateUser, updateUserPassword
-}
+  getAllUsers,
+  getSingleUser,
+  showCurrentUser,
+  updateUser,
+  updateUserPassword,
+};

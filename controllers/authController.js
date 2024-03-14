@@ -54,5 +54,7 @@ const logout = async (req,res) => {
 }
 
 module.exports = {
-    register, login, logout
-}
+  register,
+  login,
+  logout,
+};
