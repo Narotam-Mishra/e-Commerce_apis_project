@@ -66,7 +66,22 @@ const ProductSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true, toJSON:{virtuals:true}, toObject:{virtuals:true} }
 );
+
+// virtuals connection
+ProductSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'product',
+  justOne: false,
+});
+
+// pre hook - this method will delete all reviews that is associated with a product 
+// (whenever any product will be deleted)
+
+ProductSchema.pre('deleteOne', { document: true }, async function(next){
+  await this.model('Review').deleteMany({ product: this._id });
+})
 
 module.exports = mongoose.model('Product', ProductSchema);

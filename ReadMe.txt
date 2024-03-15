@@ -1,6 +1,4 @@
 
-Github Repo - https://github.com/john-smilga
-
 # morgan - HTTP request logger middleware for node.js
 
 # validator - A library of string validators and sanitizers.
@@ -33,6 +31,14 @@ Github Repo - https://github.com/john-smilga
 # Note - user can leave only one review per product.
 
 # There are two ways from which we can implement 'only one review per product' feature - 1). using 'indexing' right on schema, 2). in the controllers (review controller) when we create review APIS 
+
+# populate() method MongoDB - this method allows us to reference documents in other collections. By using this method we could get specific info about product, when requesting all reviews.
+
+# In order to connect product collection with review collections, we need to use 'Mongoose virtuals'. We can think of mongoose virtuals as properties that do not persist or are stored in the database, they only exist logically. We used to create them on the fly when we want to compute something. To setup this we will add following in 'productModel'.js file 
+
+# `{ timestamps: true, toJSON:{virtuals: true}, toObject: {virtuals: true} }` - after adding this line, this reviews will be add it as a virtual property
+
+# on virtual properties, we won't be able to perform query.
 
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:

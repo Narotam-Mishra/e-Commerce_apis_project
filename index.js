@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 // morgan middlware for logging
 const morgan = require('morgan');
 
+// to handle file upload we will use 'express-fileupload'
 const fileUpload = require('express-fileupload');
 
 // database connection
@@ -41,6 +42,7 @@ server.use(express.json())
 // middleware setup to access cookie on server
 server.use(cookieParser(process.env.JWT_SECRET));
 
+// home route
 server.get('/', (req,res) => {
     res.send('welcome to e-commerce service...')
 });
