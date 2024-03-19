@@ -22,6 +22,7 @@ const authRoute = require('./routes/authRoutes');
 const userRoute = require('./routes/userRoutes');
 const productRoute = require('./routes/productRoutes');
 const reviewRoute = require('./routes/reviewRoutes');
+const orderRoute = require('./routes/orderRoutes');
 
 // middleaware setup ans error handling
 
@@ -57,6 +58,7 @@ server.use('/api/v1/auth', authRoute);
 server.use('/api/v1/users', userRoute);
 server.use('/api/v1/products', productRoute);
 server.use('/api/v1/reviews', reviewRoute);
+server.use('/api/v1/orders', orderRoute);
 
 server.use(notFoundMiddleware);
 server.use(errorHandlerMiddleware);

@@ -39,6 +39,7 @@ const ReviewSchema = mongoose.Schema(
 // set compound index for multiple fields (for 'Product' and 'User')
 ReviewSchema.index({ product: 1, user: 1}, {unique: true });
 
+// aggregate pipeline setup to calculate average rating and num of reviews automatically
 ReviewSchema.statics.calculateAverageRatingAndNoOfReview = async function (productId) {
   // console.log("Product Id from product model:", productId);
   const result = await this.aggregate([
