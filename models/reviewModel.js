@@ -39,4 +39,36 @@ const ReviewSchema = mongoose.Schema(
 // set compound index for multiple fields (for 'Product' and 'User')
 ReviewSchema.index({ product: 1, user: 1}, {unique: true });
 
+ReviewSchema.statics.calculateAverageRatingAndNoOfReview = async function (productId) {
+  // console.log("Product Id from product model:", productId);
+  const result = await this.aggregate([
+    { $match:{ product:productId }},
+    { $group:{
+      _id:null, averageRating:{$avg:'$rating'},
+      numOfReviews:{$sum:1},
+    }}
+  ])
+  console.log(result);
+
+  try {
+    await this.model('Product').findOneAndUpdate({ _id:productId }, {
+      averageRating: Math.ceil(result[0]?.averageRating || 0),
+      numOfReviews: result[0]?.numOfReviews || 0,
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Post-save hook to calculate average rating after a new review is saved
+ReviewSchema.post('save', async function(){
+  await this.constructor.calculateAverageRatingAndNoOfReview(this.product);
+})
+
+// Post-remove hook to calculate average rating after a review is deleted
+ReviewSchema.post('deleteOne',{ document: true, query: false }, async function(){
+  await this.constructor.calculateAverageRatingAndNoOfReview(this.product);
+})
+
+
 module.exports = mongoose.model('Review', ReviewSchema);

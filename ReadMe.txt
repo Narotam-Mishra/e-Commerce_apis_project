@@ -40,6 +40,13 @@
 
 # on virtual properties, we won't be able to perform query.
 
+# Aggregate pipeline in MongoDB :- 
+==> task -> automatically update average rating and number of reviews in the product schema when we remove, create or update review.
+
+# Note - statics method: This is a property of a Mongoose schema that allows you to define static methods. Static methods are functions that are associated with the model itself rather than individual documents. They can be called directly on the model (e.g., Review.calculateAverageRating()), and they operate on the entire collection of documents.
+
+# calculateAverageRatingAndNoOfReview: This is the name of the static method you are defining. It's a custom method that you can call on the Review model. In this case, it's used for calculating the average rating for reviews associated with a specific product.
+
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
 
@@ -62,7 +69,7 @@
 
 # In Mongoose, the `pre()` method is used to define middleware functions that are executed before certain operations are performed on documents. These middleware functions can be attached to specific document lifecycle events, such as `save`, `validate`, `remove`, and others.
 
-x# Here's what the `pre()` method does:
+# Here's what the `pre()` method does:
 
 1. **Specifies a Document Middleware**:
    - The `pre()` method is used to specify a document middleware function that should be executed before a particular document operation occurs.
