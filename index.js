@@ -62,11 +62,6 @@ server.use(express.json())
 // middleware setup to access cookie on server
 server.use(cookieParser(process.env.JWT_SECRET));
 
-// home route
-server.get('/', (req,res) => {
-    res.send('welcome to e-commerce service...')
-});
-
 server.use('/api/v1/auth', authRoute);
 server.use('/api/v1/users', userRoute);
 server.use('/api/v1/products', productRoute);
