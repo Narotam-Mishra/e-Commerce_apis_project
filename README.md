@@ -1,4 +1,6 @@
 
+- [E-Commerce APIs Render URL](https://e-commerce-apis-backend.onrender.com/)
+
 ### Setup Basic Express Server
 - []import express and assign to variable
 - []setup start port variable (7371) and startServer function
@@ -343,3 +345,4 @@
 - [] cors --> to allow access from different domains.
 
 ### Deployed on Render
+- [Link](https://e-commerce-apis-backend.onrender.com/)

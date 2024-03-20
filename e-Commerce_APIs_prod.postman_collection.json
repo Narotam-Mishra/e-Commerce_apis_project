@@ -1,0 +1,579 @@
+{
+	"info": {
+		"_postman_id": "472e8540-7bec-47eb-a000-e569f9c27c5e",
+		"name": "e-Commerce_APIs_prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19928819"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "logoutUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/auth/logout",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Mike\",\r\n    \"email\" : \"mike.fsd51@gmail.com\",\r\n    \"password\" : \"fsd@here\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/auth/register",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"mike.fsd51@gmail.com\",\r\n    \"password\" : \"fsd@here\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/auth/login",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/users",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/users/65f06653aaf66725fced0b97",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"users",
+								"65f06653aaf66725fced0b97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "showUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/users/showMe",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"users",
+								"showMe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Denly\",\r\n    \"email\" : \"denly.dev.fsd41@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/users/updateUser",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"users",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserPassword",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\" : \"secret11\",\r\n    \"oldPassword\" : \"secretly21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/users/updateUserPassword",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"users",
+								"updateUserPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "createProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"albany sectional\",\r\n        \"price\": 109999,\r\n        \"image\": \"https://dl.airtable.com/.attachmentThumbnails/0be1af59cf889899b5c9abb1e4db38a4/d631ac52\",\r\n        \"colors\": [\r\n            \"#000\",\r\n            \"#ffb900\"\r\n        ],\r\n        \"company\": \"amazone\",\r\n        \"description\": \"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge\",\r\n        \"category\": \"kitchen\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products/65f95f36305121871f66a82b",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"65f95f36305121871f66a82b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"accent sofa\",\r\n        \"price\": 36999,\r\n        \"image\": \"https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160\",\r\n        \"colors\": [\r\n            \"#ff0000\",\r\n            \"#00ff00\",\r\n            \"#0000ff\"\r\n        ],\r\n        \"company\": \"flipkart\",\r\n        \"description\": \"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge\",\r\n        \"category\": \"office\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products/65f1a028d333126a6d5acfa1",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"65f1a028d333126a6d5acfa1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products/65f949bd2c20b7a10c37e5fc",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"65f949bd2c20b7a10c37e5fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadProductImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/narmishr/Downloads/couch.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products/uploadImage",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleProductReviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/products/65f95f36305121871f66a82b/reviews",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"65f95f36305121871f66a82b",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "getAllReviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/reviews",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleReview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/reviews/65f95f87305121871f66a830",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"reviews",
+								"65f95f87305121871f66a830"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateReview",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"65f95f36305121871f66a82b\",\r\n    \"rating\": 3,\r\n    \"title\": \"accent chair\",\r\n    \"comment\": \"just good one\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/reviews/65f95f87305121871f66a830",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"reviews",
+								"65f95f87305121871f66a830"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createReview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\" : \"65f95f36305121871f66a82b\",\r\n    \"rating\" : 5,\r\n    \"title\" : \"accent chair\",\r\n    \"comment\" : \"very very bad product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/reviews",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReview",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/reviews/65f95fc0305121871f66a835",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"reviews",
+								"65f95fc0305121871f66a835"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "createOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"tax\": 499,\r\n        \"shippingFee\": 799,\r\n        \"items\": [\r\n            {\r\n                \"name\": \"bed\",\r\n                \"price\": 2699,\r\n                \"image\": \"https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160\",\r\n                \"amount\": 3,\r\n                \"product\": \"65f992807aa3888b1ea60789\"\r\n            },\r\n            {\r\n                \"name\": \"chair\",\r\n                \"price\": 2999,\r\n                \"image\": \"https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160\",\r\n                \"amount\": 2,\r\n                \"product\": \"65f95f36305121871f66a82b\"\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/orders",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/orders",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/orders/65f9a43e73034c56dc0a0e2f",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"orders",
+								"65f9a43e73034c56dc0a0e2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paymentIntentId\": \"eyfifeh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/orders/65f9a43e73034c56dc0a0e2f",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"orders",
+								"65f9a43e73034c56dc0a0e2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentUserOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://e-commerce-apis-backend.onrender.com/api/v1/orders/showAllMyOrders",
+							"host": [
+								"https://e-commerce-apis-backend.onrender.com/api/v1"
+							],
+							"path": [
+								"orders",
+								"showAllMyOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
