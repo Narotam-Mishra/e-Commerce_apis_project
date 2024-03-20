@@ -50,6 +50,26 @@
 # difference between model and schema
 # In MongoDB, the terms "schema" and "model" are often used in the context of defining the structure of your data, but they serve slightly different purposes:
 
+# express-rate-limiter --> to limit request made from each IP address
+# helmet --> to set security related http response headers.
+# xss-clean --> to sanitize user input
+# express-mongo-sanitize --> to protect against MongoDB injection
+# cors - to allow access from different domains.
+
+# The line server.set('trust proxy', 1) in a Node.js/Express application is used to configure Express to trust a specific proxy's IP addresses. This is particularly relevant in scenarios where your Express application is running behind a reverse proxy or load balancer (e.g., Nginx, Apache, AWS ELB, etc.).
+
+# When your Express application is behind a proxy or load balancer, the client's IP address is often obscured because the proxy forwards the requests to your application. By default, Express only trusts requests coming directly from the client. However, if your application is behind a trusted proxy, you can configure Express to trust the IP address provided by the proxy.
+
+# Here's what the line does:
+
+# server: This is typically an instance of the Express application created using const server = express();.
+
+# .set('trust proxy', 1): This sets the application setting for trusting the proxy. The 'trust proxy' setting is a built-in setting in Express that allows you to control whether Express should trust the X-Forwarded-For header and other proxy-related headers. The value 1 here indicates that Express should trust the first proxy in the chain. If you have multiple proxies, you can use different values like 2, 3, etc., to trust different levels of proxies.
+
+# When you set trust proxy to a non-zero value (like 1), Express will examine certain headers in the incoming request, such as X-Forwarded-For, to determine the client's actual IP address. This is important for applications that need to know the client's IP address for logging, security, or other purposes.
+
+************************************************* FAQs **************************************************
+
 1. **Schema**:
    - In MongoDB, a schema refers to the structure or blueprint of the documents stored in a collection.
    - While MongoDB is a NoSQL database and is schema-less by nature, it's still common and often recommended to have a clear idea of the structure of your documents.

@@ -14,6 +14,13 @@ const morgan = require('morgan');
 // to handle file upload we will use 'express-fileupload'
 const fileUpload = require('express-fileupload');
 
+// express-rate-limiter and security related packages
+const rateLimiter = require('express-rate-limit');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const cors = require('cors');
+const mongoSanitize = require('express-mongo-sanitize');
+
 // database connection
 const connectDB = require('./db/DBConnection');
 
@@ -33,6 +40,18 @@ server.use(fileUpload());
 // middleware imports
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
+
+// set proxy
+server.set('trust proxy', 1);
+server.use(rateLimiter({
+    windowMs: 15*60*1000,
+    max: 60,
+}));
+
+server.use(helmet());
+server.use(cors());
+server.use(xss());
+server.use(mongoSanitize());
 
 // middleware setup for morgan for logging
 server.use(morgan('tiny'));
