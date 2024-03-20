@@ -54,7 +54,7 @@ server.use(xss());
 server.use(mongoSanitize());
 
 // middleware setup for morgan for logging
-server.use(morgan('tiny'));
+// server.use(morgan('tiny'));
 
 // middleware setup to access JSON data
 server.use(express.json())
@@ -65,12 +65,6 @@ server.use(cookieParser(process.env.JWT_SECRET));
 // home route
 server.get('/', (req,res) => {
     res.send('welcome to e-commerce service...')
-});
-
-server.get('/api/v1', (req,res) => {
-    // console.log(req.cookies);
-    console.log(req.signedCookies);
-    res.send('e-commerce api...');
 });
 
 server.use('/api/v1/auth', authRoute);
