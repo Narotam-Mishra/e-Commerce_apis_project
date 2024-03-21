@@ -1,6 +1,8 @@
 
 ## [E-Commerce APIs Render URL](https://e-commerce-apis-backend.onrender.com/)
 
+### [View Swagger Documentation](https://e-commerce-apis-backend.onrender.com/api-use/)
+
 ### [APIMATIC Link](https://app.apimatic.io/apientity/export/YXBpbWF0aWNfNjVmYzJkZjVkMzc2NTM5NzRmZjZiOTBi?format=OpenApi3Yaml&exportExtensions=false)
 
 ### Setup Basic Express Server
