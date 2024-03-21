@@ -21,6 +21,13 @@ const xss = require('xss-clean');
 const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
 
+// Swagger setup
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs');
+
+// load swagger
+const swaggerDocument = YAML.load('./swagger.yml')
+
 // database connection
 const connectDB = require('./db/DBConnection');
 
@@ -52,6 +59,9 @@ server.use(helmet());
 server.use(cors());
 server.use(xss());
 server.use(mongoSanitize());
+
+// swagger UI docx route setup
+server.use('/api-use', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // middleware setup for morgan for logging
 // server.use(morgan('tiny'));
