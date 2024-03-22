@@ -1,2 +1,20 @@
 
+# Admin credentials
+{
+    "email" : "peter.dev13@gmail.com",
+    "password" : "secretly31"
+}
+
+# user role credentials
+{
+    "email" : "denly.dev.fsd41@gmail.com",
+    "password" : "secretly51"
+}
+
+# user role
+{
+    "email" : "mike.fsd51@gmail.com",
+    "password" : "fsd@here"
+}
+
 # Link - https://github.com/john-smilga/node-express-course/tree/main/10-e-commerce-api/starter
