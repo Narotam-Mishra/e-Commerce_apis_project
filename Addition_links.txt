@@ -1,25 +1,4 @@
 
-# Admin credentials
-{
-    "email" : "peter.dev13@gmail.com",
-    "password" : "secretly31"
-}
-
-# user role credentials
-{
-    "email" : "denly.dev.fsd41@gmail.com",
-    "password" : "secretly51"
-}
-
-# user role
-{
-    "email" : "mike.fsd51@gmail.com",
-    "password" : "fsd@here"
-}
-
-# APIMATIC Cred 
-# Password - Ben@naru23
-
 
 Github Repo - https://github.com/john-smilga
 
