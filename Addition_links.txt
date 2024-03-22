@@ -1,8 +1,4 @@
 
-# Sendgrid_API_Key = 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
-
-Stripe Account password - Ben99@naru123
-
 # Admin credentials
 {
     "email" : "peter.dev13@gmail.com",
