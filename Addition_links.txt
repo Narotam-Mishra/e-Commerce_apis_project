@@ -1,4 +1,30 @@
 
+# Sendgrid_API_Key = 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
+
+Stripe Account password - Ben99@naru123
+
+# Admin credentials
+{
+    "email" : "peter.dev13@gmail.com",
+    "password" : "secretly31"
+}
+
+# user role credentials
+{
+    "email" : "denly.dev.fsd41@gmail.com",
+    "password" : "secretly51"
+}
+
+# user role
+{
+    "email" : "mike.fsd51@gmail.com",
+    "password" : "fsd@here"
+}
+
+# APIMATIC Cred 
+# Password - Ben@naru23
+
+
 Github Repo - https://github.com/john-smilga
 
 # Link - https://github.com/john-smilga/node-express-course/tree/main/10-e-commerce-api/starter
